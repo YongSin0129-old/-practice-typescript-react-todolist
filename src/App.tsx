@@ -15,13 +15,24 @@ const todoList: TodoList[] = [
 ]
 
 function App (): JSX.Element {
-  const [input, setInput] = useState('')
   const [todos, setTodos] = useState(todoList)
+
+  const addTodo: addTodo = input => {
+    setTodos([
+      ...todos,
+      {
+        text: input,
+        complete: false
+      }
+    ])
+  }
 
   return (
     <div className='App-header'>
       <h1 className=''>TypeScript Todo List</h1>
-      <Input input={input} setInput={setInput} todos={todos} setTodos={setTodos}/>
+      <Input
+        addTodo={addTodo}
+      />
       <TodoListPanel todos={todos} setTodos={setTodos} />
     </div>
   )

@@ -1,14 +1,14 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 type Props = {
-  input: string
-  todos: TodoList[]
-  setInput: React.Dispatch<React.SetStateAction<string>>
-  setTodos: React.Dispatch<React.SetStateAction<TodoList[]>>
+  addTodo: addTodo
 }
 
 const Input: React.FC<Props> = props => {
-  const { input, todos, setInput, setTodos } = props
+  const { addTodo } = props
+  
+  const [input, setInput] = useState('')
+
   return (
     <div>
       <input
@@ -20,13 +20,7 @@ const Input: React.FC<Props> = props => {
       <button
         onClick={() => {
           setInput('')
-          setTodos([
-            ...todos,
-            {
-              text:  input ,
-              complete: false
-            }
-          ])
+          addTodo(input)
         }}
       >
         Add task
