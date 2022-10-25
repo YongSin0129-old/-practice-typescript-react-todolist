@@ -1,6 +1,6 @@
 # 練習用 typescript 寫 react todoList 的小專案
 
-![image](public\homepage.png)
+![image](./public/homepage.png)
 
 # **啟動步骤**
 
